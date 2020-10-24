@@ -1,40 +1,42 @@
 #include<stdio.h>
-void print(int* ,int);
-void sort(int*, int);
-int swap(int*, int*);
+void print(double*, int);
+void sort(double*, int);
+double swap(double*, double*);
 int main()
 {
-	int count,i,num[99];
+	int count, i;
+	double num[99];
 	printf("Enter count: ");
-	scanf_s("%d",&count);
-	for (i=0;i<count;i++) 
+	scanf_s("%d", &count);
+	for (i = 0;i < count;i++)
 	{
 		printf("Enter number[%d]:", i);
-		scanf_s("%d",&num[i]);
+		scanf_s("%lf", &num[i]);
 	}
-	sort(num,count);
-	print(num,count);
+	sort(num, count);
+	print(num, count);
 	return 0;
 }
-void print(int* x, int y) {
+void print(double* x, int y) {
 	printf("ordered by bubblesort :");
 	for (int i = 0;i <= y - 1;i++)
 	{
-		printf("%d ",x[i]);
+		printf("%.3lf\t", x[i]);
 	}
+	printf("\n");
 }
-int swap(int *x, int* y) {
-	int temp;
+double swap(double* x, double* y) {
+	double temp;
 	temp = *x;
 	*x = *y;
 	*y = temp;
-	return *x, *y;
+	return *x, * y;
 }
 //swap value with bubblesort yeaaa
-void sort(int *x, int y) {
-	for (int i=y-1;i>0;i--) {
+void sort(double* x, int y) {
+	for (int i = y - 1;i > 0;i--) {
 		for (int j = 0;j < i;j++) {
-			if (x[j] > x[j + 1]) swap(&x[j], &x[j+1]);
+			if (x[j] > x[j + 1]) swap(&x[j], &x[j + 1]);
 		}
 	}
 }
